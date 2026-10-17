@@ -1,475 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rahul Vaishnav — Software Developer</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav>
-      <div class="nav-logo">RV.</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Archivo+Black&display=swap" rel="stylesheet"><title>Rahul Vaishnav — Full Stack Engineer</title>
+<style>
+:root{--bg:#0b0d1a;--tx:#eef0ff;--mu:#a3a8c8;--gl:rgba(255,255,255,.08);--bd:rgba(255,255,255,.16);--a:#7c8cff;--b:#35e0c2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#e9ecfb;--tx:#14172e;--mu:#4c5178;--gl:rgba(255,255,255,.55);--bd:rgba(255,255,255,.9)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;min-height:100vh}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.5;z-index:0;pointer-events:none;transition:transform .2s}
+.o1{width:420px;height:420px;background:var(--a);top:-80px;left:-80px}.o2{width:380px;height:380px;background:var(--b);bottom:-100px;right:-60px}.o3{width:260px;height:260px;background:#ff7ad9;top:45%;left:55%;opacity:.3}
+nav{position:sticky;top:12px;z-index:20;margin:12px auto 0;width:min(920px,92%);display:flex;gap:6px;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:999px;background:var(--gl);border:1px solid var(--bd);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+nav b{padding-left:10px}nav div{display:flex;gap:4px;flex-wrap:wrap}
+nav a,.btn{color:var(--tx);text-decoration:none;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid transparent;cursor:pointer;background:none;font-family:inherit}
+nav a:hover,nav a.on{background:var(--gl);border-color:var(--bd)}
+main{position:relative;z-index:1;width:min(1060px,92%);margin:0 auto;padding:40px 0 80px}
+.page{display:none}.page.show{display:block;animation:in .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.glass{background:var(--gl);border:1px solid var(--bd);border-radius:28px;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:0 20px 60px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.18)}
+.hero{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start;perspective:1200px}
+@media(max-width:780px){.hero{grid-template-columns:1fr}}
+.tilt{transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform}
+.me{padding:14px;text-align:center}.me img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block;transform:translateZ(30px)}
+.me .btn{display:block;margin-top:12px;background:linear-gradient(135deg,var(--a),var(--b));color:#06081a;font-weight:600;padding:12px;border-radius:16px}
+.me small{color:var(--mu);display:block;margin-top:8px}
+.intro{padding:38px}h1{font-size:clamp(34px,6vw,60px);margin:0 0 8px;line-height:1.05;letter-spacing:-1.5px}
+.grad{background:linear-gradient(135deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{color:var(--mu);line-height:1.65;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{padding:6px 12px;border-radius:999px;font-size:13px;background:var(--gl);border:1px solid var(--bd)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pill{color:var(--tx);text-decoration:none;padding:10px 18px;border-radius:999px;border:1px solid var(--bd);background:var(--gl);font-size:14px;transition:.2s}.pill:hover{transform:translateY(-3px);border-color:var(--a)}
+h2{font-size:30px;margin:56px 0 18px;letter-spacing:-.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;perspective:1200px}
+.card{padding:24px}.card h3{margin:0 0 10px;font-size:18px}.card p,.card li{color:var(--mu);line-height:1.55;font-size:14.5px}.card ul{padding-left:18px;margin:8px 0 0}
+.card .tag{font-size:12px;color:var(--b);letter-spacing:.08em;text-transform:uppercase}
+.card .row{margin-top:14px}.card .pill{padding:7px 14px;font-size:13px}
+.cta{display:block;text-decoration:none;color:var(--tx);padding:28px;margin-top:40px;text-align:center;border-radius:28px}
+.cta:hover{border-color:var(--b)}
+.tl{padding:22px 26px;margin-bottom:16px}.tl b{display:block}.tl span{color:var(--b);font-size:13px}
+.back{display:inline-block;margin-bottom:20px;color:var(--mu);cursor:pointer;background:none;border:0;font-size:15px}
+#rm{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(5,6,18,.6);backdrop-filter:blur(8px);padding:16px}
+#rm.show{display:flex}#rm .glass{background:var(--bg);width:min(760px,100%);max-height:88vh;overflow:auto;padding:30px}
+#rm h4{margin:20px 0 6px;color:var(--b)}#rm p,#rm li{color:var(--mu);font-size:14px;line-height:1.55}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0}
 
-    <!-- HERO -->
-    <section id="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-glow"></div>
-      <div class="hero-glow2"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-badge">Available for Work · 2026 Graduate</div>
-          <h1 class="hero-name">Rahul<br /><span>Vaishnav</span></h1>
-          <p class="hero-tagline">
-            Full Stack Developer · Data Analytics · Cloud · Security<br />
-            Building end-to-end applications with clean code, secure backends,
-            and data-driven frontends.
-          </p>
-          <div class="hero-pills">
-            <span class="pill">MERN Stack</span>
-            <span class="pill">Python / Django</span>
-            <span class="pill">Power BI</span>
-            <span class="pill">JWT / RBAC</span>
-            <span class="pill">Cloud Deploy</span>
-            <span class="pill">SQL</span>
-          </div>
-          <div class="hero-cta">
-            <a href="mailto:rahul06vaishnav@gmail.com" class="btn-primary"
-              >Get in Touch</a
-            >
-            <a
-              href="https://github.com/Rahulvaishnav108"
-              target="_blank"
-              rel="noreferrer"
-              class="btn-ghost"
-              >GitHub →</a
-            >
-          </div>
-        </div>
-        <div class="hero-photo-wrap">
-          <div class="hero-photo-frame">
-            <div class="hero-photo-corner tl"></div>
-            <div class="hero-photo-corner br"></div>
-            <img src="profile.jpg" alt="Rahul Vaishnav" />
-          </div>
-          <div class="hero-stat-chips">
-            <div class="stat-chip">
-              <div class="num">10+</div>
-              <div class="lbl">Projects</div>
-            </div>
-            <div class="stat-chip">
-              <div class="num">3</div>
-              <div class="lbl">Domains</div>
-            </div>
-            <div class="stat-chip">
-              <div class="num">2yr</div>
-              <div class="lbl">Intern/freelancing Exp.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+.glass{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04));backdrop-filter:blur(26px) saturate(190%) brightness(1.08);-webkit-backdrop-filter:blur(26px) saturate(190%) brightness(1.08);box-shadow:0 30px 70px rgba(0,0,0,.35),inset 0 1.5px 0 rgba(255,255,255,.45),inset 0 -2px 8px rgba(0,0,0,.25),inset 0 0 30px rgba(255,255,255,.05)}
+.glass::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.28),transparent 45%);pointer-events:none;opacity:.7}
+.pill,nav a.on,.btn{background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.05));box-shadow:0 4px 0 rgba(0,0,0,.35),0 10px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.6);transition:.15s}
+.pill:active,.btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.35),inset 0 2px 6px rgba(0,0,0,.35)}
+.me .btn{background:linear-gradient(180deg,#9aa6ff,#5b6bff 60%,#35e0c2);box-shadow:0 5px 0 #2b3399,0 14px 30px rgba(91,107,255,.5),inset 0 2px 0 rgba(255,255,255,.7)}
+.me{background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;padding:0;overflow:visible}.me::before{display:none}
+.stage{perspective:900px;height:360px;display:flex;align-items:center;justify-content:center;cursor:grab;touch-action:pan-y}
+.slab{position:relative;width:250px;height:290px;transform-style:preserve-3d}
+.slab .ly{position:absolute;inset:0;border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.35),rgba(124,140,255,.25));border:1px solid rgba(255,255,255,.5);transform:translateZ(var(--z))}
+.face{position:absolute;inset:0;border-radius:30px;padding:10px;transform:translateZ(14px);background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.1));box-shadow:0 30px 60px rgba(0,0,0,.45),inset 0 2px 0 #fff}
+.face img{width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.fl{position:absolute;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:600;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.15));border:1px solid rgba(255,255,255,.7);color:#14172e;transform:translateZ(var(--z));box-shadow:0 12px 24px rgba(0,0,0,.35);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{margin-top:-12px}}
+.shadow{position:absolute;bottom:-10px;left:25%;width:50%;height:22px;background:radial-gradient(#0008,transparent 70%);filter:blur(6px)}
+.rv{opacity:0;transform:translateY(50px) rotateX(12deg);transition:.8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+.card ul.hl{margin-top:10px}.card .st{color:var(--b);font-size:12px;margin-top:10px}
+.mk{display:flex;gap:10px;overflow:hidden;margin:22px 0}.mk div{display:flex;gap:10px;animation:mq 30s linear infinite;flex:none}@keyframes mq{to{transform:translateX(-100%)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="section-inner">
-        <p class="section-label">// Technical Arsenal</p>
-        <h2 class="section-title">Core Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🖥️</div>
-            <div class="skill-card-title">Languages</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">JavaScript ES6+</span>
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">C</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🎨</div>
-            <div class="skill-card-title">Frontend</div>
-            <div class="skill-tags">
-              <span class="skill-tag">React.js</span>
-              <span class="skill-tag">HTML5</span>
-              <span class="skill-tag">CSS3</span>
-              <span class="skill-tag">Responsive UI/UX</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">⚙️</div>
-            <div class="skill-card-title">Backend</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">Django</span>
-              <span class="skill-tag">Flask</span>
-              <span class="skill-tag">REST APIs</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🗄️</div>
-            <div class="skill-card-title">Databases & SQL</div>
-            <div class="skill-tags">
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">MSSQL Server</span>
-              <span class="skill-tag">Mongoose ORM</span>
-              <span class="skill-tag">Query Optimization</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">📊</div>
-            <div class="skill-card-title">Data & Analytics</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">NumPy</span>
-              <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">Tableau</span>
-              <span class="skill-tag">SQL Analysis</span>
-              <span class="skill-tag">Data Visualization</span>
-              <span class="skill-tag">EDA</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">☁️</div>
-            <div class="skill-card-title">Cloud & DevTools</div>
-            <div class="skill-tags">
-              <span class="skill-tag">AWS EC2</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Firebase</span>
-              <span class="skill-tag">Vercel</span>
-              <span class="skill-tag">Netlify</span>
-              <span class="skill-tag">Render</span>
-              <span class="skill-tag">Git & GitHub</span>
-              <span class="skill-tag">Postman</span>
-              <span class="skill-tag">Figma</span>
-              <span class="skill-tag">Kiro</span>
-              <span class="skill-tag">MS Tools</span>
-              <span class="skill-tag">VS Code</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🔐</div>
-            <div class="skill-card-title">Security</div>
-            <div class="skill-tags">
-              <span class="skill-tag">JWT Auth</span>
-              <span class="skill-tag">RBAC</span>
-              <span class="skill-tag">Secure API Design</span>
-              <span class="skill-tag">Input Validation</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🧠</div>
-            <div class="skill-card-title">Problem Solving</div>
-            <div class="skill-tags">
-              <span class="skill-tag">DSA</span>
-              <span class="skill-tag">LeetCode</span>
-              <span class="skill-tag">GeeksforGeeks</span>
-              <span class="skill-tag">Dynamic Programming</span>
-              <span class="skill-tag">OOP</span>
-              <span class="skill-tag">DBMS</span>
-              <span class="skill-tag">OS</span>
-              <span class="skill-tag">CN</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-icon">🤖</div>
-            <div class="skill-card-title">AI Tools</div>
-            <div class="skill-tags">
-              <span class="skill-tag">ChatGPT</span>
-              <span class="skill-tag">Claude</span>
-              <span class="skill-tag">Grok</span>
-              <span class="skill-tag">Kiro AI</span>
-              <span class="skill-tag">LLM Prompting</span>
-              <span class="skill-tag">AI-Assisted Dev</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+.hero{grid-template-columns:540px 1fr}@media(max-width:960px){.hero{grid-template-columns:1fr}}
+.ow{height:540px;position:relative}
+.orbit{position:absolute;left:50%;top:0;width:520px;height:520px;margin-left:-260px;transform-origin:top center}
+@media(max-width:600px){.ow{height:360px}.orbit{transform:scale(.66)}}
+.core{position:absolute;left:50%;top:50%;width:176px;height:176px;margin:-88px;border-radius:50%;padding:6px;background:conic-gradient(from 0deg,#7c8cff,#35e0c2,#ff7ad9,#7c8cff);animation:spin 8s linear infinite;box-shadow:0 0 60px rgba(124,140,255,.7),0 0 120px rgba(53,224,194,.35)}
+.core>div{width:100%;height:100%;border-radius:50%;overflow:hidden;animation:spin 8s linear infinite reverse;background:#111;box-shadow:inset 0 0 0 3px rgba(255,255,255,.5),inset 0 8px 18px rgba(255,255,255,.3)}
+.core img{width:100%;height:100%;object-fit:cover;display:block}
+.nuc{position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px;border-radius:50%;background:radial-gradient(circle,rgba(124,140,255,.45),transparent 70%);animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.25);opacity:.6}}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px dashed rgba(163,168,200,.45);animation:spin var(--T) linear infinite;transform-style:preserve-3d}
+.orbit:hover .ring,.orbit:hover .chip2{animation-play-state:paused}
+.it{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translateX(var(--r))}
+.cw{display:block;transform:rotate(calc(-1*var(--a))) translate(-50%,-50%)}
+.chip2{display:block;white-space:nowrap;padding:6px 12px;font-size:12px;font-weight:600;border-radius:999px;color:#14172e;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.45));border:1px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.25),0 10px 18px rgba(0,0,0,.3);animation:spin var(--T) linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+#pg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:99}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-top:22px}.stats div{padding:14px;text-align:center;border-radius:20px;background:var(--gl);border:1px solid var(--bd)}.stats b{display:block;font-size:26px}.stats span{font-size:12px;color:var(--mu)}
+.cur::after{content:"|";animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="section-inner">
-        <p class="section-label">// Professional Journey</p>
-        <h2 class="section-title">Experience</h2>
-        <div class="exp-card reveal">
-          <div class="exp-role">Associate Developer</div>
-          <div class="exp-meta">
-            <span class="exp-company">R&DLabs</span>
-            <span class="exp-date">2025 — Present</span>
-          </div>
-          <ul class="exp-bullets">
-            <li>
-              Worked as an Associate Developer in the Research & Development
-              Labs, contributing to the design, development, and experimentation
-              of innovative software solutions. Focused on building scalable
-              prototypes, exploring emerging technologies, and transforming
-              ideas into functional applications.
-            </li>
-            <li>
-              Collaborated with cross-functional teams to develop and test new
-              features, optimize system performance, and implement modern
-              architectures. Actively involved in full-stack development using
-              technologies like React.js, Node.js, and Python frameworks, while
-              ensuring clean code practices and efficient API design.
-            </li>
-            <li>
-              Contributed to research-driven projects involving data analysis,
-              automation, and AI-based solutions, helping bridge the gap between
-              theoretical concepts and real-world applications. Participated in
-              code reviews, debugging, and performance tuning to deliver
-              high-quality, production-ready outputs.
-            </li>
-            <li>
-              Continuously explored new tools, frameworks, and industry trends
-              to enhance development efficiency and innovation within the team.
-            </li>
-          </ul>
-        </div>
-        <div class="exp-card reveal">
-          <div class="exp-role">Web Developer Intern</div>
-          <div class="exp-meta">
-            <span class="exp-company">Intern / Freelancing</span>
-            <span class="exp-date">Jan 2024 — Mar 2025</span>
-          </div>
-          <ul class="exp-bullets">
-            <li>
-              Developed and maintained RESTful APIs using Node.js and Express.js
-              to support frontend client integrations.
-            </li>
-            <li>
-              Designed and optimized relational MySQL database schemas,
-              improving query performance and data consistency.
-            </li>
-            <li>
-              Implemented JWT-based secure authentication and role-based access
-              control — applying cybersecurity best practices throughout the
-              SDLC.
-            </li>
-            <li>
-              Supported frontend development tasks with React.js, improving UI
-              responsiveness across mobile and desktop.
-            </li>
-            <li>
-              Debugged, tested, and troubleshot API and database issues,
-              collaborating with cross-functional teams in sprint cycles.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+:root:not([data-theme=dark]){--bg:#f3ede0;--tx:#111;--ink:#111;--paper:#fffaf0;--mu:#333;--dot:#d9cfb8;--y:#ffd93d;--p:#ff8fab;--m:#7be0b5;--bl:#8ab4ff;--o:#ff9f5a;--bd:#111}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16141b;--tx:#f5f0e6;--ink:#f5f0e6;--paper:#24212c;--mu:#d2cbdd;--dot:#2c2935;--bd:#f5f0e6}}
+:root[data-theme=dark]{--bg:#16141b;--tx:#f5f0e6;--ink:#f5f0e6;--paper:#24212c;--mu:#d2cbdd;--dot:#2c2935;--bd:#f5f0e6}
+body{font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(var(--dot) 1.4px,transparent 1.6px) 0 0/22px 22px,var(--bg);color:var(--tx)}
+.orb{display:none}
+h1,h2,nav b{font-family:"Archivo Black","Space Grotesk",Impact,sans-serif;font-weight:900}
+.grad{background:var(--y);color:#111;-webkit-background-clip:border-box;background-clip:border-box;padding:0 .18em;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:inline-block;rotate:-1.2deg}
+nav b .grad{padding:0 .1em;box-shadow:2px 2px 0 var(--ink);border-width:2px}
+nav{border:3px solid var(--ink);border-radius:18px;background:var(--paper);box-shadow:6px 6px 0 var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none}
+nav a{color:var(--ink);font-weight:700;border-radius:10px}nav a:hover,nav a.on{background:var(--y);color:#111;border:2px solid var(--ink);box-shadow:none}
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 40%),var(--paper);border:3px solid var(--ink);border-radius:20px;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:7px 7px 0 var(--ink),inset 0 3px 0 rgba(255,255,255,.55),inset 0 -5px 0 rgba(0,0,0,.1)}
+.glass::before{display:none}
+.card,.tl,.stats div,.cta{color:#111}
+.pill,.btn{background:linear-gradient(180deg,#fff,#e9e1cf);color:#111;font-weight:700;border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink),inset 0 2px 0 #fff;transition:.12s}
+.pill:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink),inset 0 2px 0 #fff;border-color:var(--ink)}
+.pill:active,.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink),inset 0 3px 6px rgba(0,0,0,.25)}
+.me .btn{background:linear-gradient(180deg,#ffb3c7,#ff6f9c);color:#111;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink),inset 0 2px 0 rgba(255,255,255,.7)}
+.chip{background:var(--y);color:#111;border:2px solid var(--ink);font-weight:700;border-radius:8px}
+.intro p{color:var(--mu)}.intro{background:var(--paper)}
+.grid{grid-template-columns:repeat(6,1fr);gap:22px;grid-auto-flow:dense}
+.grid>*{grid-column:span 2}#sk>*:nth-child(-n+2),#pr>*:nth-child(-n+2),#data .grid>*{grid-column:span 3!important}
+@media(max-width:900px){.grid>*,#sk>*:nth-child(-n+2),#pr>*:nth-child(-n+2),#data .grid>*{grid-column:span 6!important}}
+.grid>:nth-child(5n+1){--c:var(--y)}.grid>:nth-child(5n+2){--c:var(--m)}.grid>:nth-child(5n+3){--c:var(--p)}.grid>:nth-child(5n+4){--c:var(--bl)}.grid>:nth-child(5n){--c:var(--o)}
+.card.glass{background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0) 35%),var(--c,var(--paper))}
+.grid>.card:nth-child(odd){rotate:-.5deg}.grid>.card:nth-child(even){rotate:.5deg}
+.grid>.card:hover{rotate:0deg;box-shadow:11px 11px 0 var(--ink),inset 0 3px 0 rgba(255,255,255,.55)}
+.card h3{color:#111;font-family:"Archivo Black",sans-serif;font-weight:900;font-size:20px}.card p,.card li{color:#222!important}
+.card .tag,.card .st{color:#111;background:rgba(255,255,255,.7);display:inline-block;padding:2px 8px;border:2px solid #111;border-radius:6px;font-weight:700}
+.card .pill{background:linear-gradient(180deg,#fff,#eee)}
+.stats div{background:var(--y);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:14px}.stats div:nth-child(2){background:var(--m)}.stats div:nth-child(3){background:var(--p)}.stats div:nth-child(4){background:var(--bl)}.stats span{color:#222}
+.cta{background:var(--m)!important}.cta span{color:#222!important}
+.tl{background:var(--paper)}.tl p{color:var(--mu)!important}.tl span{color:var(--ink);font-weight:700}
+.core{background:var(--y);animation:none;padding:0;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--ink),inset 0 4px 0 rgba(255,255,255,.6);width:200px;height:200px;margin:-100px;z-index:3}
+.core>div{animation:none;box-shadow:inset 0 0 0 3px var(--ink);border-radius:50%}
+.nuc{display:none}.orbit{z-index:1}
+.el{position:absolute;left:50%;top:50%;white-space:nowrap;padding:5px 11px;font-size:12px;font-weight:700;color:#111;border:2.5px solid var(--ink);border-radius:9px;box-shadow:3px 3px 0 var(--ink),inset 0 2px 0 rgba(255,255,255,.7);will-change:transform;cursor:default}
+#rm .glass{background:var(--bg)}footer{color:var(--mu)}
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="section-inner">
-        <p class="section-label">// Built With Passion</p>
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card reveal">
-            <div class="project-num">01</div>
-            <div class="project-title">
-              FinanceOS — Full Stack Finance Dashboard
-            </div>
-            <p class="project-desc">
-              Personal finance management app with transaction tracking, expense
-              categorization, interactive charts, and Power BI-style analytics.
-              Deployed on Render.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">React.js</span>
-              <span class="stack-chip">Node.js</span>
-              <span class="stack-chip">MongoDB/SQLight</span>
-              <span class="stack-chip">SQL</span>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-num">02</div>
-            <div class="project-title">Book Review Platform</div>
-            <p class="project-desc">
-              Full-stack MERN app with JWT authentication, RBAC, protected
-              routes, ratings, reviews, and server-side pagination. 15+ RESTful
-              API endpoints tested with Postman.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">MongoDB</span>
-              <span class="stack-chip">Express.js</span>
-              <span class="stack-chip">React.js</span>
-              <span class="stack-chip">JWT</span>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-num">03</div>
-            <div class="project-title">AI Career Navigator</div>
-            <p class="project-desc">
-              AI-powered career guidance prototype that analyzes user skills and
-              recommends career paths using intelligent matching logic built
-              with Python and React.js.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">Python</span>
-              <span class="stack-chip">AI/ML</span>
-              <span class="stack-chip">React.js</span>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-num">04</div>
-            <div class="project-title">KishanSuvidha — AgriTech Platform</div>
-            <p class="project-desc">
-              Farmer-assistance platform with crop management, market price
-              tracking, and advisory features. Accessible low-bandwidth UI with
-              localization, cloud-hosted.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">React.js</span>
-              <span class="stack-chip">Node.js</span>
-              <span class="stack-chip">MongoDB</span>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-num">05</div>
-            <div class="project-title">NoteApp & Python Personal AI</div>
-            <p class="project-desc">
-              CRUD note-taking app with tag-based filtering. Python Personal AI
-              Assistant with NLP query handling for natural language task
-              automation.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">Python</span>
-              <span class="stack-chip">NLP</span>
-              <span class="stack-chip">CRUD</span>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-num">06</div>
-            <div class="project-title">Library System · CRM · IPL Platform</div>
-            <p class="project-desc">
-              Library Management System, CRM Webpage, and IPL Fan Engagement
-              Platform — showcasing varied full-stack and data capabilities
-              across domains.
-            </p>
-            <div class="project-stack">
-              <span class="stack-chip">Full Stack</span>
-              <span class="stack-chip">SQL</span>
-              <span class="stack-chip">React.js</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+:root:not([data-theme=dark]){--bg:#e6eeff;--tx:#0f1535;--ink:#0f1535;--paper:#ffffff;--mu:#37406b;--dot:#c3d2f3;--y:#a78bfa;--m:#67e8f9;--p:#f9a8d4;--bl:#93c5fd;--o:#bef264;--bd:#0f1535;--g1:rgba(139,92,246,.28);--g2:rgba(34,211,238,.3)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#080b22;--tx:#eef0ff;--ink:#8f9dff;--paper:#141942;--mu:#c3c9ee;--dot:#1c2252;--bd:#8f9dff;--g1:rgba(139,92,246,.4);--g2:rgba(34,211,238,.28)}}
+:root[data-theme=dark]{--bg:#080b22;--tx:#eef0ff;--ink:#8f9dff;--paper:#141942;--mu:#c3c9ee;--dot:#1c2252;--bd:#8f9dff;--g1:rgba(139,92,246,.4);--g2:rgba(34,211,238,.28)}
+body{background:radial-gradient(circle at 12% 8%,var(--g1),transparent 42%) fixed,radial-gradient(circle at 90% 85%,var(--g2),transparent 42%) fixed,radial-gradient(var(--dot) 1.4px,transparent 1.6px) 0 0/22px 22px,var(--bg)}
+.grad{color:#0f1535}
+.tl,.tl b{color:var(--tx)}
+.card,.stats div,.cta{color:#0f1535}.card h3,.card p,.card li{color:#0f1535!important}
+.me .btn{background:linear-gradient(180deg,#c4b5fd,#22d3ee);color:#0f1535;box-shadow:5px 5px 0 var(--ink),inset 0 2px 0 rgba(255,255,255,.7)}
+.pill:hover{border-color:var(--ink)}
+svg ellipse{filter:drop-shadow(0 0 5px var(--ink));stroke-width:3}
+.el{font-size:13px;padding:6px 12px;color:#0f1535}
+.core{background:linear-gradient(135deg,var(--y),var(--m))}
+</style></head><body><div id="pg"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<nav><b>RV<span class="grad">.</span></b><div><a href="#home" data-p="home">Home</a><a href="#skills" data-p="home">Skills</a><a href="#projects" data-p="home">Projects</a><a href="#data" data-p="data">Data &amp; Ops</a><a href="#contact" data-p="home">Contact</a></div></nav>
+<main>
+<section class="page show" id="home">
+<div class="hero">
+ <div class="glass me"><div class="ow"><div class="orbit" id="orbit"><div class="core"><div><img src="data:image/webp;base64,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" alt="Rahul Vaishnav" width="420" height="425" fetchpriority="high"></div></div></div></div><button class="btn" onclick="rm.classList.add('show')">📄 View Resume (SDE)</button><small style="text-align:center">Hover the atom to pause the orbit · Full Stack Software Engineer</small></div>
+ <div class="glass intro tilt" data-t>
+  <div class="tag chip" style="display:inline-block">● Open to SDE roles</div>
+  <h1 style="margin-top:14px">Hi, I'm <span class="grad">Rahul Vaishnav</span></h1><div style="font-size:19px;margin:-2px 0 10px" class="grad"><span id="ty" class="cur"></span></div>
+  <p>Full-stack engineer building MERN and TypeScript applications: React front ends, Node.js/Express REST APIs, JWT auth, role-based access control and real-time features. Associate Developer at R&amp;DLabs. B.Tech CSE, GEC Bikaner (CGPA 8.46).</p>
+  <div class="stats"><div><b>6</b><span>Projects shipped</span></div><div><b>2</b><span>Engineering roles</span></div><div><b>20+</b><span>Backend modules (SaaS)</span></div><div><b>8.46</b><span>CGPA, B.Tech CSE</span></div></div><div class="row"><a class="pill" href="https://github.com/Rahulvaishnav108" target="_blank" rel="noopener">GitHub</a><a class="pill" href="https://www.linkedin.com/in/rahul-vaishnav-8674472bb/" target="_blank" rel="noopener">LinkedIn</a><a class="pill" href="https://dnrzzc.csb.app/" target="_blank" rel="noopener">Portfolio</a><a class="pill" href="mailto:rahul06vaishnav@gmail.com">Email</a></div>
+ </div></div>
 
-    <!-- VIDEO -->
-    <section id="video">
-      <div class="section-inner">
-        <p class="section-label">// In Action</p>
-        <h2 class="section-title">Watch My Work</h2>
-        <div class="video-wrapper reveal">
-          <iframe
-            src="https://www.youtube.com/embed/TT5avu0n7dY"
-            title="Rahul Vaishnav Project Demo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
+<h2 id="skills">Software Engineering <span class="grad">Skills</span></h2>
+<div class="grid" id="sk"></div>
+<a class="glass cta tilt" data-t href="#data" data-p="data"><b style="font-size:18px">Also into data work? →</b><br><span style="color:var(--mu)">See my Data Annotation, Data Ops &amp; Analyst profile</span></a>
 
-    <!-- EDUCATION -->
-    <section id="about">
-      <div class="section-inner">
-        <p class="section-label">// Academic Background</p>
-        <h2 class="section-title">Education</h2>
-        <div class="reveal">
-          <div class="edu-row">
-            <div class="edu-year">2022–2026</div>
-            <div>
-              <div class="edu-degree">
-                B.Tech — Computer Science & Engineering
-              </div>
-              <div class="edu-school">
-                Government Engineering College, Bikaner, Rajasthan
-              </div>
-              <div class="edu-school edu-coursework">
-                Coursework: DSA · DBMS · Operating Systems · Computer Networks ·
-                OOP · Software Engineering
-              </div>
-            </div>
-          </div>
-          <div class="edu-row">
-            <div class="edu-year">2019–2022</div>
-            <div>
-              <div class="edu-degree">Senior Secondary (XII) — Science</div>
-              <div class="edu-school">GSSS Banera, Bhilwara, Rajasthan</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<h2>Experience</h2>
+<div class="glass tl"><b>Associate Developer — R&amp;DLabs</b><span>Dec 2025 – Present</span><p style="color:var(--mu);margin:8px 0 0">Full-stack MERN apps, REST APIs with JWT + RBAC, MongoDB/MySQL schema optimisation, MVC code reviews, production troubleshooting.</p></div>
+<div class="glass tl"><b>Full Stack Developer Intern — Graphura India Pvt. Ltd.</b><span>Apr 2026 – Jul 2026</span><p style="color:var(--mu);margin:8px 0 0">MERN features, secure auth flows, responsive UIs, Git branching and peer-reviewed sprints.</p></div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-inner">
-        <p class="section-label">// Let's Connect</p>
-        <h2 class="section-title">Open to Opportunities</h2>
-        <p class="contact-copy">
-          B.Tech CSE fresher (2026), open to relocation to Bangalore · Hyderabad
-          · Pune.<br />
-          Ready to deliver value as an Associate Software Engineer.
-        </p>
-        <div class="contact-grid reveal">
-          <a href="mailto:rahul06vaishnav@gmail.com" class="contact-card">
-            <span class="icon">✉️</span> rahul06vaishnav@gmail.com
-          </a>
-          <a href="tel:+917339829201" class="contact-card">
-            <span class="icon">📱</span> +91 73398 29201
-          </a>
-          <a
-            href="https://www.linkedin.com/in/rahul-vaishnav-8674472bb/"
-            target="_blank"
-            rel="noreferrer"
-            class="contact-card"
-          >
-            <span class="icon">💼</span> LinkedIn Profile
-          </a>
-          <a
-            href="https://github.com/Rahulvaishnav108"
-            target="_blank"
-            rel="noreferrer"
-            class="contact-card"
-          >
-            <span class="icon">🐙</span> GitHub Repos
-          </a>
-          <a
-            href="https://dnrzzc.csb.app/"
-            target="_blank"
-            rel="noreferrer"
-            class="contact-card"
-          >
-            <span class="icon">🌐</span> Portfolio Site
-          </a>
-        </div>
-      </div>
-    </section>
+<h2 id="projects">Projects</h2>
+<div class="grid" id="pr"></div>
 
-    <!-- FOOTER -->
-    <footer>
-      <span>© 2026 Rahul Vaishnav · Bhilwara, Rajasthan</span>
-      <span class="footer-note">Built with passion ✦</span>
-    </footer>
+<h2 id="contact">Contact</h2>
+<div class="glass card tilt" data-t style="text-align:center"><h3>Let's build something</h3><p>rahul06vaishnav@gmail.com · 7339829201</p><div class="row" style="justify-content:center"><a class="pill" href="mailto:rahul06vaishnav@gmail.com">Email me</a><a class="pill" href="tel:+917339829201">Call</a><a class="pill" href="https://www.linkedin.com/in/rahul-vaishnav-8674472bb/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+</section>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+<section class="page" id="data">
+<button class="back" onclick="location.hash='home'">← Back to Software Engineering</button>
+<div class="glass intro tilt" data-t><h1>Data <span class="grad">Operations</span> &amp; Quality</h1><p>Besides engineering, I bring a data-integrity mindset: validating records, reconciling mismatches, building MIS dashboards and following guideline-based review workflows. Available for these roles too.</p>
+<div class="chips"><span class="chip">Human Data Operations</span><span class="chip">Video Data Annotation</span><span class="chip">Data Analyst</span><span class="chip">MIS &amp; Reporting</span></div></div>
+<div class="grid" style="margin-top:24px">
+ <div class="glass card tilt" data-t><div class="tag">Data Ops &amp; Quality</div><h3>Human Data Operations</h3><ul><li>Data validation &amp; integrity</li><li>Discrepancy identification</li><li>Quality checks, audit trails</li><li>CSV import/export</li></ul></div>
+ <div class="glass card tilt" data-t><div class="tag">Annotation</div><h3>Video Data Annotator</h3><ul><li>Guideline-based labeling</li><li>Careful review &amp; consistency checks</li><li>Error identification</li><li>Written feedback, English communication</li></ul></div>
+ <div class="glass card tilt" data-t><div class="tag">Analysis</div><h3>Reporting &amp; Analysis</h3><ul><li>MIS reporting, dashboards</li><li>KPI-oriented monitoring</li><li>Reconciliation</li><li>Trend &amp; issue investigation</li></ul></div>
+ <div class="glass card tilt" data-t><div class="tag">Workflow</div><h3>Process &amp; Tools</h3><ul><li>Workflow design, issue tracking</li><li>Testing &amp; documentation</li><li>SQL, Excel/CSV, Google Workspace</li><li>Postman, Git/GitHub</li></ul></div>
+</div>
+<h2>Relevant Projects</h2>
+<div class="grid">
+ <div class="glass card tilt" data-t><h3>Sukh Sagar MIS &amp; Operations</h3><p>Role-based dashboard for production, inventory, sales, purchases, quality control, MIS reports, audit history and CSV import/export across 7 roles.</p><div class="row"><a class="pill" href="https://github.com/Rahulvaishnav108/finance-dashboard-api" target="_blank" rel="noopener">GitHub</a><a class="pill" href="https://rahulvaishnav108.github.io/finance-dashboard-api/" target="_blank" rel="noopener">Live Demo</a></div></div>
+ <div class="glass card tilt" data-t><h3>Daily Closeout</h3><p>Compares restaurant sales and settlement CSVs, flags mismatches and exports closeout reports.</p><div class="row"><a class="pill" href="https://rahulvaishnav108.github.io/Automation-closeout/" target="_blank" rel="noopener">Live Demo</a></div></div>
+</div>
+<div class="row" style="justify-content:center;margin-top:30px"><a class="pill" href="mailto:rahul06vaishnav@gmail.com">Email me</a><a class="pill" href="https://www.linkedin.com/in/rahul-vaishnav-8674472bb/" target="_blank" rel="noopener">LinkedIn</a></div>
+</section>
+</main>
+<div id="rm" onclick="if(event.target===this)this.classList.remove('show')"><div class="glass">
+<button class="btn" style="float:right;border:1px solid var(--bd)" onclick="rm.classList.remove('show')">✕ Close</button>
+<h2 style="margin:0">Rahul Vaishnav</h2><p>Full Stack Software Engineer · rahul06vaishnav@gmail.com · 7339829201</p>
+<h4>Summary</h4><p>Full-stack engineer who builds and ships MERN and TypeScript applications: React front ends, Node.js/Express REST APIs, JWT authentication, role-based access control, and real-time features. Projects include a multi-tenant SaaS platform, a real-time collaboration workspace, and an operations dashboard, backed by MongoDB, MySQL, and SQLite. Strong CS fundamentals (DSA, OOP, DBMS).</p>
+<h4>Technical Skills</h4><ul><li><b>Languages:</b> JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3; Python, C, C++ (foundational)</li><li><b>Frontend:</b> React.js, Vite, Tailwind CSS, TanStack Query, PWA, responsive UI</li><li><b>Backend &amp; APIs:</b> Node.js, Express.js, RESTful APIs, Socket.IO (WebSockets), MVC, Zod validation, node-cron jobs</li><li><b>Security:</b> JWT (refresh-token rotation), RBAC, tenant isolation, rate limiting, Helmet, input sanitization</li><li><b>Databases:</b> MongoDB, Mongoose, MySQL, MSSQL, SQLite, PostgreSQL (working); schema design &amp; query optimization</li><li><b>DevOps &amp; Testing:</b> Git, GitHub, GitHub Actions (CI), Docker, Jest, Vitest, Postman, AWS (basics), Vercel, Netlify</li><li><b>AI / LLM:</b> LLM tool-calling (Groq), candidate-scoring pipelines, LLM evaluation, prompt analysis</li><li><b>CS Fundamentals:</b> DSA, OOP, DBMS, OS &amp; Networking basics, debugging</li></ul>
+<h4>Professional Experience</h4><p><b>Associate Developer — R&amp;DLabs</b> (Dec 2025 – Present)</p><ul><li>Build and maintain full-stack MERN applications with REST APIs secured by JWT authentication and role-based access control.</li><li>Optimize MongoDB and MySQL schemas for query performance and scalability; review code to enforce clean MVC architecture.</li><li>Partner with cross-functional teams on UI/UX improvements and troubleshoot production issues.</li></ul><p><b>Full Stack Developer Intern — Graphura India Private Limited</b> (Apr 2026 – Jul 2026)</p><ul><li>Developed MERN features with REST APIs, secure JWT/RBAC authentication flows, and responsive UIs, following MVC and clean-code principles.</li><li>Worked in Git branching workflows and agile-style sprints with peer code reviews to deliver timely, quality releases.</li></ul>
+<h4>Projects</h4><ul><li><b>Restaurant Automation SaaS</b> (React, TypeScript, Node.js, Express.js, MongoDB, Socket.IO): multi-tenant SaaS with 20+ backend modules and role-based PWAs; JWT with refresh-token rotation, RBAC, tenant isolation, expiring QR table sessions, Zod, rate limiting, Helmet, Mongo sanitization; real-time kitchen queue, node-cron, Razorpay, PDF billing, Jest, Postman, Docker, GitHub Actions CI.</li><li><b>Real-Time Collaborative Workspace</b> (React, Node.js, Express.js, Socket.IO, MongoDB): live co-editing, Kanban boards, custom unit-tested Operational Transform engine, presence and cursors, document locking, version history, offline/reconnect handling, Groq-powered AI board assistant.</li><li><b>Sukh Sagar MIS &amp; Operations System</b> (Node.js, Express.js, SQLite, JWT, RBAC): textile operations dashboard with 7 roles, audit routes, CSV import/export, automated tests, public demo via GitHub Actions and Pages.</li><li><b>AutoShield — DDoS Protection Dashboard</b> (React, Node.js, Express.js, WebSockets, SQLite): live dashboard, rate-based DDoS, brute-force and geo-blocking controls; v2 with token-authenticated API/WebSocket, spoof-proof client IP, injection detection, Helmet, log retention, Nginx/systemd deployment.</li><li><b>RateStore Platform</b> (React, TypeScript, Express, MySQL): admin, user and store-owner roles, JWT auth, validated forms.</li><li><b>Daily Closeout</b> (React/TypeScript): reconciles sales and settlement CSVs, flags mismatches, exports closeout reports.</li></ul>
+<h4>AI / LLM Projects</h4><ul><li><b>Candidate Intelligent Ranking System (CIRS)</b> — India Runs Data &amp; AI Challenge (Redrob): multi-dimensional candidate scoring pipeline with ranked CSV outputs and an evaluation deck.</li><li><b>cognee</b> (open-source AI memory / knowledge graph) — architecture review and bug analysis.</li></ul><h4>Education</h4><p>B.Tech, Computer Science &amp; Engineering — Government Engineering College, Bikaner | CGPA 8.46/10 | 2022–2026<br>High School and Senior Secondary — GSSS Banera, Bhilwara | 2019–2022</p>
+</div></div>
+<footer>© 2026 Rahul Vaishnav</footer>
+<script>
+const SK=[["Languages","JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3; Python, C, C++ (foundational)"],["Frontend","React.js, Vite, Tailwind CSS, TanStack Query, PWA, responsive UI"],["Backend &amp; APIs","Node.js, Express.js, REST, Socket.IO, MVC, Zod, node-cron"],["Security","JWT refresh rotation, RBAC, tenant isolation, rate limiting, Helmet, sanitization"],["Databases","MongoDB, Mongoose, MySQL, MSSQL, SQLite, PostgreSQL (working)"],["DevOps &amp; Testing","Git, GitHub Actions CI, Docker, Jest, Vitest, Postman, AWS (basics), Vercel, Netlify"],["AI / LLM","LLM tool-calling (Groq), candidate-scoring pipelines, LLM evaluation, prompt analysis"],["CS Fundamentals","DSA, OOP, DBMS, OS &amp; Networking basics, debugging"]];
+const G="https://github.com/Rahulvaishnav108/";
+const PR=[["Restaurant Automation SaaS","A complete multi-tenant platform that runs a restaurant: customers scan a QR at the table, order, and the kitchen sees it live.","React · TypeScript · Node · MongoDB · Socket.IO",[["GitHub",G+"Restaurant-automation-Saas"]],["20+ backend modules: menu, orders, kitchen, reservations, billing, inventory, loyalty, analytics","Role-based PWAs for customers, kitchen, staff, admins, super admin","JWT refresh rotation, RBAC, tenant isolation, Zod, rate limiting, Helmet","Razorpay payments, PDF billing, Jest, Docker, GitHub Actions CI"]],
+["Real-Time Collaborative Workspace","A Notion/Trello-style workspace where many people edit the same document and board at once without conflicts.","React · Socket.IO · MongoDB",[["GitHub",G+"CollaborativeWorkspaceREALTIMESYN"]],["Custom unit-tested Operational Transform engine for concurrent edits","Live presence and cursors, document locking, version history with restore","Offline/reconnect handling","AI board assistant (Groq tool-calling) that edits boards live"]],
+["Sukh Sagar MIS &amp; Operations","An operations dashboard for a textile business covering the whole flow from production to sales.","Express · SQLite · JWT",[["GitHub",G+"finance-dashboard-api"],["Live Demo","https://rahulvaishnav108.github.io/finance-dashboard-api/"]],["Production, inventory, sales, purchases, quality control, MIS reports","7 user roles with RBAC and audit history","CSV import/export","Automated tests for auth, finance APIs, authorization; public demo on Pages"]],
+["AutoShield — DDoS Dashboard","A security tool that detects and blocks attacks while you watch them happen on a live dashboard.","React · WebSockets · SQLite",[["GitHub",G+"AutoShield"]],["Rate-based DDoS, brute-force and geo-blocking controls","Real-time WebSocket event streaming","Token-authenticated API, spoof-proof client IP, injection detection","Nginx/systemd production deployment"]],
+["RateStore Platform","A store-rating app where users rate stores, owners track feedback and admins manage everything.","React · TypeScript · Express · MySQL",[["GitHub",G+"RateStore-Platform"]],["Admin, user and store-owner roles","JWT auth and validated forms","Database-backed rating workflows"]],
+["CIRS — Candidate Ranking System","Built for the India Runs Data &amp; AI Challenge (Redrob): scores and ranks candidates across multiple dimensions.","Python-style data pipeline · LLM/AI evaluation",[],["Multi-dimensional candidate scoring pipeline","Ranked CSV outputs","Evaluation deck in the official template"]],["cognee — AI Memory Analysis","Deep review of an open-source AI memory / knowledge-graph system.","AI · Knowledge graphs · Code review",[],["Analysed the architecture","Identified bugs","Documented findings"]],["Daily Closeout","A reconciliation tool that finds mismatches between a restaurant's sales and settlement files.","React · TypeScript",[["Live Demo","https://rahulvaishnav108.github.io/Automation-closeout/"]],["Compares sales and settlement CSVs","Flags mismatches automatically","Exports closeout reports"]]];
+sk.innerHTML=SK.map(s=>`<div class="glass card tilt" data-t><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join("");
+pr.innerHTML=PR.map(p=>`<div class="glass card tilt rv" data-t><div class="tag">${p[2]}</div><h3>${p[0]}</h3><p>${p[1]}</p><ul class="hl">${p[4].map(x=>`<li>${x}</li>`).join("")}</ul><div class="row">${p[3].map(l=>`<a class="pill" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("")}</div></div>`).join("");
+document.querySelectorAll(".card,.tl,.cta").forEach(e=>e.classList.add("rv"));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
+function obs(){document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e))}obs();addEventListener("hashchange",()=>setTimeout(obs,80));
+addEventListener("pointermove",e=>{
+ document.querySelectorAll(".glass").forEach(g=>{const r=g.getBoundingClientRect();g.style.setProperty("--mx",(e.clientX-r.left)+"px");g.style.setProperty("--my",(e.clientY-r.top)+"px")})});
+
+function route(){const h=location.hash.slice(1)||"home",d=h==="data";
+ document.getElementById("home").classList.toggle("show",!d);document.getElementById("data").classList.toggle("show",d);
+ document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+(d?"data":h)));
+ if(d)scrollTo(0,0);else if(h!=="home"){const e=document.getElementById(h);e&&setTimeout(()=>e.scrollIntoView(),50)}else scrollTo(0,0)}
+addEventListener("hashchange",route);route();
+const ok=matchMedia("(hover:hover)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(ok){document.addEventListener("mousemove",e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+ document.querySelectorAll(".orb").forEach((o,i)=>o.style.transform=`translate(${x*-50*(i+1)}px,${y*-50*(i+1)}px)`);
+ const t=e.target.closest("[data-t]");document.querySelectorAll("[data-t]").forEach(el=>{if(el!==t)el.style.transform=""});
+ if(t){const r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;t.style.transform=`rotateY(${px*10}deg) rotateX(${-py*10}deg) translateZ(14px)`}})}
+
+
+const AB=[232,86],RG=[[0,"var(--y)",1,.5,["JavaScript","TypeScript","SQL","HTML5","CSS3","Python","C++"]],[60,"var(--p)",-1,.38,["React","Node.js","Express","Tailwind","Socket.IO","Vite","PWA","Zod"]],[120,"var(--m)",1,.3,["MongoDB","MySQL","SQLite","Docker","Git","Jest","JWT","AWS"]]];
+const NS="http://www.w3.org/2000/svg";orbit.insertAdjacentHTML("afterbegin",`<svg viewBox="-260 -260 520 520" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none">${RG.map(r=>`<ellipse rx="${AB[0]}" ry="${AB[1]}" fill="none" stroke="var(--ink)" stroke-width="2.5" transform="rotate(${r[0]})"/>`).join("")}<circle r="7" fill="var(--ink)" cx="0" cy="0" opacity="0"/></svg>`);
+const E=[];RG.forEach((r,ri)=>r[4].forEach((n,i)=>{const d=document.createElement("div");d.className="el";d.textContent=n;d.style.background=r[1];orbit.appendChild(d);E.push({d,th:r[0]*Math.PI/180,t0:i/r[4].length*6.283,v:r[2]*r[3]})}));
+let hov=false,tm=0,last=0;orbit.addEventListener("pointerenter",()=>hov=true);orbit.addEventListener("pointerleave",()=>hov=false);
+const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function fr(now){const dt=Math.min(.05,(now-last)/1000);last=now;if(!hov&&!still)tm+=dt;
+ E.forEach(e=>{const t=e.t0+tm*e.v,x=AB[0]*Math.cos(t),y=AB[1]*Math.sin(t),c=Math.cos(e.th),s2=Math.sin(e.th),X=x*c-y*s2,Y=x*s2+y*c,dp=Math.sin(t),sc=1+.14*dp;
+  e.d.style.transform=`translate(calc(${X}px - 50%),calc(${Y}px - 50%)) scale(${sc})`;e.d.style.zIndex=dp>0?5:1;e.d.style.opacity=dp>0?1:.85});requestAnimationFrame(fr)}
+requestAnimationFrame(fr);
+const R=["Full Stack Software Engineer","MERN & TypeScript Developer","Real-Time Systems Builder"];let ri=0,ci=0,del=false;
+(function ty(){const w=R[ri];ci+=del?-1:1;document.getElementById("ty").textContent=w.slice(0,ci);let d=del?35:70;if(!del&&ci===w.length){del=true;d=1400}else if(del&&ci===0){del=false;ri=(ri+1)%R.length;d=300}setTimeout(ty,d)})();
+addEventListener("scroll",()=>{const h=document.documentElement;pg.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"});
+</script></body></html>
